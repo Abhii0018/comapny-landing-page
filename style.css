@@ -43,34 +43,68 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px 40px;
-    background-color:rgb(232, 227, 220);
+    padding: 15px 30px;
+    background-color: rgba(232, 227, 220, 0.85);
+    backdrop-filter: blur(10px);
 
     top:0px;
     position: sticky;
-    border-bottom: 1px solid rgb(143, 133, 133);
-    border-radius: 2%;
+    border-bottom: 1px solid rgba(143, 133, 133, 0.3);
+    border-radius: 0;
     z-index: 1000;
+}
+
+header h1 {
+  font-size: var(--font-size-2xl);
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 700;
 }
 
 nav ul{
     display:flex;
     list-style:none;
-    gap:20px;
+    gap: 5px;
 }
+
 nav ul li a {
   text-decoration: none;
   color: #333;
-  font-size: 15px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1.125rem;
+  padding: 12px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: inline-block;
+  position: relative;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  background-color: #ff6f61;
+nav ul li a:hover {
+  background-color: var(--primary-color);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+}
+
+nav ul li a.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 .hero {
@@ -103,14 +137,22 @@ nav ul li a.active {
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
+
 .hero-btn:hover {
   background-color: #ff3b2f;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 111, 97, 0.4);
+}
+
+.hero-btn:active {
+  transform: translateY(-1px);
 }
 
 /* Cards Section - Flexbox */
@@ -291,16 +333,23 @@ nav ul li a.active {
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: 14px 30px;
+  font-size: 1.0625rem;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  border-radius: 6px;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
 .pricing-btn:hover {
   background-color: #ff3b2f;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.3);
+}
+
+.pricing-btn:active {
+  transform: translateY(-1px);
 }
 
 /* Responsive Design */
@@ -414,22 +463,23 @@ nav ul li a.active {
   background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 15px 40px;
-  font-size: 16px;
+  padding: 16px 40px;
+  font-size: 1.0625rem;
   font-weight: 600;
   cursor: pointer;
   border-radius: 6px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
 .submit-btn:hover {
   background-color: #ff3b2f;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 111, 97, 0.3);
 }
 
 .submit-btn:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .contact-info {
@@ -1286,14 +1336,16 @@ nav ul li a.active {
   text-decoration: none;
   border-radius: var(--border-radius);
   font-weight: 600;
-  font-size: var(--font-size-base);
-  transition: var(--transition);
-  box-shadow: var(--box-shadow);
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
 }
 
 .cta-button:active {
